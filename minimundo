@@ -1,0 +1,18 @@
+Esta propuesta nace de la necesidad de un establecimiento educacional, que requiere de un sistema eficaz para la administración de los datos de dicho establecimiento.
+El establecimiento está conformado por distintas áreas tales como: Área administrativa, Sector de mantención, Departamento de evaluación, PIE, Junaeb.
+Estas áreas a su vez cuentan con sus respectivos encargados, los cuales son empleados del establecimiento y algunos del estado como los encargados de Junaeb.
+Pero entre los que destacan en las distintas áreas son:
+Área administrativas: Sostenedor, Secretaria, Director.
+Área de mantención y orden del establecimiento tenemos encargados como: enfermería, inspectores tanto generales como de patios, y asistentes de educación.
+Departamento de evaluación: contamos con encargados como el jefe técnico pedagógico, el evaluador y el orientador.
+También tenemos la necesidad de organizar los datos del departamento del Pie(programa de integración escolar) los cuales son respectivos a los fonoaudiólogos,
+psicólogos y psicopedagogos en sus respectivas áreas.
+En el sector Junaeb tenemos funcionarios de alimentación, odontólogos y oftalmología, los cuales tienen turnos de tiempo completo en el establecimiento.
+
+Este sistema de base de datos está orientado tanto a apoderados, profesores, alumnos e incluso ex-alumnos, y funcionarios casi en general,
+con la salvedad de los funcionarios de asistencia educacional antes definidos. Entre los datos que se quieren almacenar y tener acceso a los individuos antes mencionados tenemos,
+un historial de calificaciones, asistencia y rendimiento académico por alumno, y su respectivo historial para alumnos y ex alumnos.
+
+Además también se pide almacenar datos para planes educativos, para el área educativa y de administración. Enfocado en los apoderados se necesita tener acceso tanto a horarios,
+reuniones, avisos importantes y todo lo relacionado al rendimiento académico de sus estudiantes, claro tambien se dispone de datos personales de cada individuo como son el nombre,
+rut, direccion, sexo, fecha de nacimiento.
