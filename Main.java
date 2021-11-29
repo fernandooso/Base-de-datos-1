@@ -1,4 +1,3 @@
-
 package prueba2;
 
 import java.sql.SQLException;
@@ -12,6 +11,7 @@ public class Main {
         menuprincipal unmenup= new menuprincipal();
         menuadmin unmenu = new menuadmin();
         menuprofe unmenupr=new menuprofe();
+        menuprofeap unmenupap=new menuprofeap();
         
         while(op!=0){
             op=unmenup.principal();
@@ -30,7 +30,7 @@ public class Main {
                 }
             }
             if(op==2){
-                while(op!=0){
+                while(op!=10){
                     op=unmenupr.profe();      
                         if(op==1){
                             unmenupr.ponernota();
@@ -44,18 +44,18 @@ public class Main {
                 }
             }
             if(op==3){
-                /*while(op!=0){
-                    op=unmenu.admin();      
+                while(op!=11){
+                    op=unmenupap.profeap();      
                         if(op==1){
-                            unmenu.alumno();
+                            unmenupap.vernota();
                         }
                         if(op==2){
-                            unmenu.apoderado();
+                            unmenupap.veranotacion();
                         }
                         if(op==3){
-                            unmenu.profesor();
+                            unmenupap.verasistencia();
                     }
-                }*/
+                }
                 
             }
         }
