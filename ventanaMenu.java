@@ -75,8 +75,20 @@ class ventanaMenu extends JPanel{
                 limpiarEscritorio(profe, frame);
             }
         });
+        profe.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				  profe profe=new profe(frame);
+	                frame.setSize(800,700);
+	                limpiarEscritorio(profe, frame);
+	            
+				
+			}
+		});
         
     }
+    
     
     
     private void limpiarEscritorio(JPanel nuevoPanel,JFrame frame) {
