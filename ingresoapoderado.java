@@ -19,6 +19,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 /**
  *
@@ -109,6 +112,14 @@ public class ingresoapoderado extends JPanel{
         tfnac.setBounds(320, 410, 200, 25);
         ingresoap.add(tfnac);
         
+        JLabel itipo= new JLabel("Ingrese tipo(princ/supl)");
+        itipo.setBounds(100, 450, 200, 45);
+        itipo.setFont(new Font("Lucida Fax", Font.BOLD, 15));
+        ingresoap.add(itipo);
+        JTextField ttipo=new JTextField();
+        ttipo.setBounds(320, 460, 200, 25);
+        ingresoap.add(ttipo);
+        
         JButton volver= new JButton("volver");
 	volver.setBounds(50, 550, 161, 45);
         volver.setFont(new Font("Lucida Fax", Font.BOLD, 11));
@@ -123,6 +134,48 @@ public class ingresoapoderado extends JPanel{
                 limpiarEscritorio(admin,frame);
             }
         });
+        
+        ingresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String rut=trut.getText();
+                String nom=tnom.getText();
+                String sn=tsn.getText();
+                String ap=tap.getText();
+                String am=tam.getText();
+                String dir=tdir.getText();
+                String fnac=tfnac.getText();
+                String sex=tsex.getText();
+                String tipo=ttipo.getText();
+                conexion con= new conexion();
+                con.conectpsql();
+                
+                
+                String insert ="insert into persona (rut, nombre, nombre_s, apellido_p, apellido_m,direccion,sexo,f_nac)"+
+                " values" +
+                "('"+rut+"','"+nom+"','"+sn+"','"+ap+"','"+am+"','"+dir+"','"+sex+"','"+fnac+"')";
+                
+                String insert2="insert into apoderado(rut_apoderado,tipo) values"+
+                        "('"+rut+"','"+tipo+"');";
+                try {
+                    con.insertaconsultadoble(insert,insert2);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ingresoapoderado.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                con.desconectar();
+                
+                trut.setText("");
+                tnom.setText("");
+                tsn.setText("");
+                tap.setText("");
+                tam.setText("");
+                tdir.setText("");
+                tfnac.setText("");
+                tsex.setText("");
+                ttipo.setText("");
+            }
+        });
+        
         
     }
     private void limpiarEscritorio(JPanel nuevoPanel,JFrame frame) {

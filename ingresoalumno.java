@@ -9,6 +9,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -111,6 +114,54 @@ class ingresoalumno extends JPanel {
 	volver.setBounds(50, 550, 161, 45);
         volver.setFont(new Font("Lucida Fax", Font.BOLD, 11));
 	ingresoap.add(volver);
+        
+        
+        
+        ingresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String rut=trut.getText();
+                String nom=tnom.getText();
+                String sn=tsn.getText();
+                String ap=tap.getText();
+                String am=tam.getText();
+                String dir=tdir.getText();
+                String fnac=tfnac.getText();
+                String sex=tsex.getText();
+                String rap=tira.getText();
+                conexion con= new conexion();
+                con.conectpsql();
+                
+                String insert1 ="insert into persona (rut, nombre, nombre_s, apellido_p, apellido_m,direccion,sexo,f_nac)"+
+                " values" +
+                "('"+rut+"','"+nom+"','"+sn+"','"+ap+"','"+am+"','"+dir+"','"+sex+"','"+fnac+"');";
+                
+                String insert2="insert into alumno(rut_alumno) values ('"+rut+"');";
+                
+                String insert3="insert into a_cargo(niño,apoderado,fecha_a_cargo) values "+
+                        "('"+rut+"','"+rap+"','2021-03-01');";
+                
+                
+                
+                try {
+                    con.insertaconsultadoble(insert1, insert2);
+                    con.insertaconsultasimple(insert3);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ingresoalumno.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                trut.setText("");
+                tnom.setText("");
+                tsn.setText("");
+                tap.setText("");
+                tam.setText("");
+                tdir.setText("");
+                tfnac.setText("");
+                tsex.setText("");
+                tira.setText("");
+                
+            }
+        });
         
         volver.addActionListener(new ActionListener() {
             @Override
