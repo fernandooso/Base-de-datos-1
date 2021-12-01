@@ -73,7 +73,7 @@ public class panel_poner_notas extends JPanel {
 	        p.setLayout(null);
 
 	        JLabel l= new JLabel();
-	        l.setIcon(new ImageIcon("E:\\Desktop\\ope\\azul.jpg"));
+	        l.setIcon(new ImageIcon("C:\\Users\\Faoc_\\Documents\\NetBeansProjects\\prueba2\\src\\imagenes\\azul.jpg"));
 	        l.setBounds(0, 0, 290, 700);
 	        p.add(l);
 
@@ -84,7 +84,7 @@ public class panel_poner_notas extends JPanel {
 	        p2.setLayout(null);
 
 	        JLabel l2=new JLabel();
-	        l2.setIcon(new ImageIcon("E:\\\\Desktop\\\\ope\\\\azul.jpg"));
+	        l2.setIcon(new ImageIcon("C:\\Users\\Faoc_\\Documents\\NetBeansProjects\\prueba2\\src\\imagenes\\azul.jpg"));
 	        l2.setBounds(0, 0, 350, 700);
 	        p2.add(l2);
 		 
@@ -112,7 +112,7 @@ public class panel_poner_notas extends JPanel {
 	                try {
 						cone.insertaconsultasimple(consult1);
 					} catch (SQLException e1) {
-						// TODO Bloque catch generado automáticamente
+						// TODO Bloque catch generado automï¿½ticamente
 						e1.printStackTrace();
 					}
 	               
@@ -120,6 +120,9 @@ public class panel_poner_notas extends JPanel {
 	            }
 	        });   
 	             
+                rutal.setText("");
+	        coda.setText("");
+	        notaA.setText("");
 	    }
 	      private void limpiarEscritorio(JPanel nuevoPanel,JFrame frame) {
 		frame.getContentPane().removeAll();//remueve todo del panel

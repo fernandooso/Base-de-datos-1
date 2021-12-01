@@ -64,6 +64,30 @@ public class admin extends JPanel{
         volver.setFont(new Font("Lucida Fax", Font.BOLD, 11));
 	opcionesadmin.add(volver);
         
+        JPanel p = new JPanel();
+        p.setBackground(new Color(72, 209, 204));
+        p.setBounds(0, 0, 290, 700);
+      	opcionesadmin.add(p);
+        p.setLayout(null);
+        
+        JLabel l= new JLabel();
+        l.setIcon(new ImageIcon("C:\\Users\\Faoc_\\Documents\\NetBeansProjects\\prueba2\\src\\imagenes\\colegio.jpg"));
+        l.setBounds(0, 0, 290, 700);
+        p.add(l);
+                
+        JPanel p2 = new JPanel();
+        p2.setBackground(new Color(72, 209, 204));
+        p2.setBounds(470, 0, 350, 700);
+      	opcionesadmin.add(p2);
+        p2.setLayout(null);
+        
+        JLabel l2=new JLabel();
+        l2.setIcon(new ImageIcon("C:\\Users\\Faoc_\\Documents\\NetBeansProjects\\prueba2\\src\\imagenes\\azul.jpg"));
+        l2.setBounds(0, 0, 350, 700);
+        p2.add(l2);
+        
+        
+        
         
         apoderado.addActionListener(new ActionListener() {
             @Override
@@ -87,6 +111,8 @@ public class admin extends JPanel{
         volver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                
+                //volver al ventana
                 ventanaMenu admin=new ventanaMenu(frame);
                 frame.setSize(800, 700);
                 limpiarEscritorio(admin,frame);

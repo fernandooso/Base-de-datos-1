@@ -125,6 +125,28 @@ public class ingresoapoderado extends JPanel{
         volver.setFont(new Font("Lucida Fax", Font.BOLD, 11));
 	ingresoap.add(volver);
         
+        JPanel p = new JPanel();
+        p.setBackground(new Color(72, 209, 204));
+        p.setBounds(0, 0, 50, 700);
+      	ingresoap.add(p);
+        p.setLayout(null);
+        
+        JLabel l= new JLabel();
+        l.setIcon(new ImageIcon("C:\\Users\\Faoc_\\Documents\\NetBeansProjects\\prueba2\\src\\imagenes\\azul.jpg"));
+        l.setBounds(0, 0, 290, 700);
+        p.add(l);
+                
+        JPanel p2 = new JPanel();
+        p2.setBackground(new Color(72, 209, 204));
+        p2.setBounds(530, 0, 350, 700);
+      	ingresoap.add(p2);
+        p2.setLayout(null);
+        
+        JLabel l2=new JLabel();
+        l2.setIcon(new ImageIcon("C:\\Users\\Faoc_\\Documents\\NetBeansProjects\\prueba2\\src\\imagenes\\azul.jpg"));
+        l2.setBounds(0, 0, 350, 700);
+        p2.add(l2);
+        
         
         volver.addActionListener(new ActionListener() {
             @Override

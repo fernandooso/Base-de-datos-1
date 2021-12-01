@@ -66,6 +66,17 @@ class panelasistencia extends JPanel {
         ingresar.setFont(new Font("Lucida Fax", Font.BOLD, 11));
         asistencia.add(ingresar);
         
+        JPanel p = new JPanel();
+        p.setBackground(new Color(72, 209, 204));
+        p.setBounds(0, 0, 50, 700);
+      	asistencia.add(p);
+        p.setLayout(null);
+        
+        JLabel l= new JLabel();
+        l.setIcon(new ImageIcon("C:\\Users\\Faoc_\\Documents\\NetBeansProjects\\prueba2\\src\\imagenes\\azul.jpg"));
+        l.setBounds(0, 0, 290, 700);
+        p.add(l);
+        
         
         volver.addActionListener(new ActionListener() {
             @Override

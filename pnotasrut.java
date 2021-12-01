@@ -66,6 +66,30 @@ class pnotasrut extends JPanel {
         ingresar.setFont(new Font("Lucida Fax", Font.BOLD, 11));
         opcionesn.add(ingresar);
         
+        JPanel p = new JPanel();
+        p.setBackground(new Color(72, 209, 204));
+        p.setBounds(0, 0, 50, 700);
+      	opcionesn.add(p);
+        p.setLayout(null);
+        
+        JLabel l= new JLabel();
+        l.setIcon(new ImageIcon("C:\\Users\\Faoc_\\Documents\\NetBeansProjects\\prueba2\\src\\imagenes\\azul.jpg"));
+        l.setBounds(0, 0, 290, 700);
+        p.add(l);
+        
+        
+        JPanel p2 = new JPanel();
+        p2.setBackground(new Color(72, 209, 204));
+        p2.setBounds(610, 0, 350, 700);
+      	opcionesn.add(p2);
+        p2.setLayout(null);
+        
+        JLabel l2=new JLabel();
+        l2.setIcon(new ImageIcon("C:\\Users\\Faoc_\\Documents\\NetBeansProjects\\prueba2\\src\\imagenes\\azul.jpg"));
+        l2.setBounds(0, 0, 350, 700);
+        p2.add(l2);
+        
+        
         volver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

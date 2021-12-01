@@ -50,21 +50,21 @@ public class conexion {
         st.close();
     }
     
-    public void consultanotas(String consulta) throws SQLException{
+    public String consultapass(String consulta) throws SQLException{
         Statement st= conectar.createStatement();
         ResultSet rs;
+        String uwu="";
         try {
             rs=st.executeQuery(consulta);
             while(rs.next()){ 
-               System.out.println("alumno:"+rs.getString("estudiante"));
-               System.out.println("asignatura:"+rs.getString("materia"));
-               System.out.println("nota:"+rs.getString("notas"));
-               System.out.println("");
+               uwu=(rs.getString("pass"));
+
            }
         } catch (Exception e) {
             System.out.println("no pasa na compa");
         }
         st.close();
+        return uwu;
     }
     
         public void consultasistencia(String consulta) throws SQLException{
