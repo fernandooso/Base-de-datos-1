@@ -15,7 +15,7 @@ public class menuadmin {
         System.out.println("1-alumno");
         System.out.println("2-apoderado");
         System.out.println("3-profesor");
-        System.out.println("0-salir");
+        System.out.println("10-salir");
         int op = in.nextInt();
         return op;   
     }
@@ -66,18 +66,16 @@ public class menuadmin {
         String sex = in.nextLine();
         System.out.println("ingrese fecha de nacimiento: ");
         String fnac = in.nextLine(); 
-        System.out.println("ingrese fecha el tipo de apoderado(principal/suplente): ");
+        System.out.println("ingrese el tipo de apoderado(principal/suplente): ");
         String tipo = in.nextLine();
-        System.out.println("ingrese alumno a cargo: ");
-        String pupilo = in.nextLine();
+
         conexion con= new conexion();
         con.conectpsql();
         String insert1="insert into persona"+
                 "(rut, nombre, nombre_s, apellido_p,apellido_m,direccion,sexo,f_nac)"+
                 " values ('"+rut+"','"+nombre+"','"+s_nombre+"','"+ap+"','"+am+"','"+dir+"','"+sex+"','"+fnac+"');"; 
         String insert2 ="insert into apoderado(rut_apoderado,tipo) values ('"+rut+"','"+tipo+"');";
-        String insert3 ="insert into a_cargo(niño,apoderado,fecha_a_cargo)values('"+pupilo+"','"+rut+"','2021-03-01')";
-        con.insertaconsultatriple(insert1, insert2, insert3);
+        con.insertaconsultadoble(insert1, insert2);
         con.desconectar();
     }
     
