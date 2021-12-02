@@ -60,7 +60,7 @@ class ventanaMenu extends JPanel{
         profeap.setFont(new Font("Lucida Fax", Font.BOLD, 11));
 	panelOpcionesMenu.add(profeap);
 	
-       JPanel p = new JPanel();
+        JPanel p = new JPanel();
         p.setBackground(new Color(72, 209, 204));
         p.setBounds(0, 0, 290, 700);
       	panelOpcionesMenu.add(p);
@@ -86,8 +86,6 @@ class ventanaMenu extends JPanel{
         admin.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                //ventana login
-                //admin admin=new admin(frame);
                 loginadmin admin=new loginadmin(frame);
                 frame.setSize(800, 700);
                 limpiarEscritorio(admin,frame);
@@ -98,8 +96,6 @@ class ventanaMenu extends JPanel{
         profeap.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //profeap profe=new profeap(frame);
-                
                 loginprofe profe=new loginprofe(frame);
                 frame.setSize(800,700);
                 limpiarEscritorio(profe, frame);
@@ -107,17 +103,13 @@ class ventanaMenu extends JPanel{
         });
         
         profe.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-                            loginprofeprofe profe=new loginprofeprofe(frame);
-				  //profe profe=new profe(frame);
-	                frame.setSize(800,700);
-	                limpiarEscritorio(profe, frame);
-	            
-				
-			}
-		});
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loginprofeprofe profe=new loginprofeprofe(frame);
+                frame.setSize(800,700);
+	        limpiarEscritorio(profe, frame);
+	    }
+        });
         
     }
     

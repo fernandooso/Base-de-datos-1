@@ -47,7 +47,6 @@ public class ingresoapoderado extends JPanel{
         ingresar.setFont(new Font("Lucida Fax", Font.BOLD, 11));
         ingresoap.add(ingresar);
         
-        
         JLabel irut= new JLabel("Ingrese el RUT");
         irut.setBounds(100, 50, 161, 45);
         irut.setFont(new Font("Lucida Fax", Font.BOLD, 15));
@@ -147,7 +146,6 @@ public class ingresoapoderado extends JPanel{
         l2.setBounds(0, 0, 350, 700);
         p2.add(l2);
         
-        
         volver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -156,7 +154,7 @@ public class ingresoapoderado extends JPanel{
                 limpiarEscritorio(admin,frame);
             }
         });
-        
+        //boton para ingresar la consulta
         ingresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -180,7 +178,7 @@ public class ingresoapoderado extends JPanel{
                 String insert2="insert into apoderado(rut_apoderado,tipo) values"+
                         "('"+rut+"','"+tipo+"');";
                 try {
-                    con.insertaconsultadoble(insert,insert2);
+                    con.insertaconsultadoble(insert,insert2);//ingreso de la consulta
                 } catch (SQLException ex) {
                     Logger.getLogger(ingresoapoderado.class.getName()).log(Level.SEVERE, null, ex);
                 }

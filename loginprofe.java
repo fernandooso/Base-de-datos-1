@@ -29,7 +29,6 @@ class loginprofe extends JPanel {
 	admin.setBounds(0, 0, 800, 700);
         admin.setLayout(null);
 	add(admin);
-       
         
         JButton volver= new JButton("volver");
 	volver.setBounds(300, 300, 161, 45);
@@ -96,21 +95,21 @@ class loginprofe extends JPanel {
                 String pass=String.valueOf(tpass.getPassword());
                 
                 String consulta="select pass from usardo where usuario='"+user+"';";
-                String respuesta="";
+                String respuesta="";//variable para guardar la contraseña obtenida
                 try {
-                    respuesta=con.consultapass(consulta);
+                    respuesta=con.consultapass(consulta);//consulta que retorna la contraseña
                
                 } catch (SQLException ex) {
                     Logger.getLogger(loginadmin.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-                System.out.println(respuesta);
+              
              
                 con.desconectar();
                 if(user.equals("")){
                     JOptionPane.showMessageDialog(null,"Error usuario o contraseña incorrecto");
                 }else{
-                    if(pass.equals(respuesta)){
+                    if(pass.equals(respuesta)){//comprueba la contraseña
                         profeap profe=new profeap(frame);
                         frame.setSize(800, 700);
                         limpiarEscritorio(profe,frame);

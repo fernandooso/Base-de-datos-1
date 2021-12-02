@@ -22,13 +22,13 @@ class pnotasnombre extends JPanel{
 	this.setBackground(Color.WHITE);
 	this.setLayout(null);
 	setBounds(0, 0, 800, 700);
-        
+        //panel donde estan los demas componentes
         JPanel opcionesn = new JPanel();
         opcionesn.setBackground(Color.WHITE);
 	opcionesn.setBounds(0, 0, 800, 700);
         opcionesn.setLayout(null);
 	add(opcionesn);
-        
+        //tabla para mostrar los datos
         JTable tabla=new JTable();  
         tabla.setBounds(100, 200, 500, 300);
         conexion cone=new conexion();
@@ -41,8 +41,6 @@ class pnotasnombre extends JPanel{
         scrol.setBounds(100, 200, 500, 200);
         opcionesn.add(scrol);
         cone.desconectar();
-        
-        
         
         JLabel label= new JLabel("Ver notas por nombre");
         label.setBounds(300, 30, 200, 20);
@@ -105,7 +103,7 @@ class pnotasnombre extends JPanel{
         l2.setBounds(0, 0, 350, 700);
         p2.add(l2);
         
-        
+       //bton para ingresar la consulta 
         ingresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -113,18 +111,18 @@ class pnotasnombre extends JPanel{
                 String ap=tiap.getText();
                 String am=tiam.getText();
                 
-                conexion cone=new conexion();
+                conexion cone=new conexion();//establece conexion
                 cone.conectpsql();
                 String consult1="select * from cursa where estudiante="+
                         "(select rut from persona where nombre="+""
                         + "'"+nombre+"' and apellido_p='"+ap+"' and apellido_m='"+am+"');";
-                DefaultTableModel modelo=cone.consultanr(consult1);
+                DefaultTableModel modelo=cone.consultanr(consult1);//ingreso de la consulta
                 tabla.setModel(modelo);
                 cone.desconectar();
             }
         }); 
-        
- volver.addActionListener(new ActionListener() {
+        //boton para volver al panel anterior
+        volver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 panelopcionesnotas pap= new panelopcionesnotas(frame);

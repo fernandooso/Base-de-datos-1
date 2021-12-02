@@ -22,50 +22,52 @@ class pnotasrut extends JPanel {
 	this.setBackground(Color.WHITE);
 	this.setLayout(null);
 	setBounds(0, 0, 800, 700);
-        
+        //panel principal donde estan todos los componentes
         JPanel opcionesn = new JPanel();
         opcionesn.setBackground(Color.WHITE);
 	opcionesn.setBounds(0, 0, 800, 700);
         opcionesn.setLayout(null);
 	add(opcionesn);
-        
+        //tabla para mostrar los datos
         JTable tabla=new JTable();  
         tabla.setBounds(100, 200, 500, 300);
         conexion cone=new conexion();
         cone.conectpsql();
-        String consult1="select * from cursa where estudiante=' ';";
+        String consult1="select * from cursa where estudiante=' ';";//consulta para recibir la tabla, no es operativa
         DefaultTableModel modelo=cone.consultanr(consult1);
         tabla.setModel(modelo);
         opcionesn.add(new JScrollPane(tabla),BorderLayout.CENTER);
-        JScrollPane scrol=new JScrollPane(tabla);
+        JScrollPane scrol=new JScrollPane(tabla);//scrollpane donde esta la tabla
         scrol.setBounds(100, 120, 500, 200);
         opcionesn.add(scrol);
         cone.desconectar();
         
-        
+        //etiquetas
         JLabel label= new JLabel("Ver notas por rut");
         label.setBounds(300, 30, 200, 20);
         label.setFont(new Font("Lucida Fax", Font.BOLD, 15));
         opcionesn.add(label);
-        
+        //etiquetas
         JLabel irut= new JLabel("Ingrese el RUT");
         irut.setBounds(100, 50, 161, 45);
         irut.setFont(new Font("Lucida Fax", Font.BOLD, 15));
         opcionesn.add(irut);
+        //textfields
         JTextField trut=new JTextField();
         trut.setBounds(320, 60, 200, 25);
         opcionesn.add(trut);
-        
+        //botones
         JButton volver= new JButton("volver");
 	volver.setBounds(50, 550, 161, 45);
         volver.setFont(new Font("Lucida Fax", Font.BOLD, 11));
 	opcionesn.add(volver);
         
-         JButton ingresar= new JButton("Buscar resultado");
+        JButton ingresar= new JButton("Buscar resultado");
         ingresar.setBounds(300, 550, 161, 65);
         ingresar.setFont(new Font("Lucida Fax", Font.BOLD, 11));
         opcionesn.add(ingresar);
         
+        //panel para detalles azules
         JPanel p = new JPanel();
         p.setBackground(new Color(72, 209, 204));
         p.setBounds(0, 0, 50, 700);
@@ -89,7 +91,7 @@ class pnotasrut extends JPanel {
         l2.setBounds(0, 0, 350, 700);
         p2.add(l2);
         
-        
+        //boton para volver al panel anterior
         volver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,15 +100,15 @@ class pnotasrut extends JPanel {
                 limpiarEscritorio(pap,frame);
             }
         });
-          
+         //boton para ingresar la consulta 
         ingresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String rut=trut.getText();
-                conexion cone=new conexion();
+                conexion cone=new conexion();//establecer conexion
                 cone.conectpsql();
                 String consult1="select * from cursa where estudiante='"+rut+"';";
-                DefaultTableModel modelo=cone.consultanr(consult1);
+                DefaultTableModel modelo=cone.consultanr(consult1);//ingresar la consulta
                 tabla.setModel(modelo);
                 cone.desconectar();
             }
@@ -115,8 +117,8 @@ class pnotasrut extends JPanel {
     }
       private void limpiarEscritorio(JPanel nuevoPanel,JFrame frame) {
 	frame.getContentPane().removeAll();//remueve todo del panel
-	frame.getContentPane().repaint();//lo re-dibuja
-	frame.getContentPane().add(nuevoPanel);//añade el nuevo panel al frame
-	frame.getContentPane().validate();//valida los datos
+	frame.getContentPane().repaint();
+	frame.getContentPane().add(nuevoPanel);
+	frame.getContentPane().validate();
     }
 }

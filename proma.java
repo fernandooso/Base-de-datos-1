@@ -130,8 +130,8 @@ class proma extends JPanel{
                 } catch (SQLException ex) {
                     Logger.getLogger(proma.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                String uwu = String.valueOf(avg);
-                label3.setText(uwu);
+                String promedio = String.valueOf(avg);
+                label3.setText(promedio);
                 tabla.setModel(modelo);
                 cone.desconectar();
             }

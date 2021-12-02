@@ -31,7 +31,7 @@ public class admin extends JPanel{
 	this.setLayout(null);
 	setBounds(0, 0, 800, 700);
         
-        
+        //panel donde estan los demas componentes
         JPanel opcionesadmin = new JPanel();
         opcionesadmin.setBackground(Color.WHITE);
 	opcionesadmin.setBounds(0, 0, 800, 700);
@@ -88,7 +88,7 @@ public class admin extends JPanel{
         
         
         
-        
+        //boton para ir a la ventana de ingreso de apoderados
         apoderado.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -97,7 +97,7 @@ public class admin extends JPanel{
                limpiarEscritorio(pia, frame);
             }
         });
-        
+        //boton para ir a la ventana de ingreso de alumnos
         alumno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -106,13 +106,10 @@ public class admin extends JPanel{
                 limpiarEscritorio(pial, frame);
             }
         });
-        
-        
+        //boton para volver al panel anterior
         volver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-                //volver al ventana
                 ventanaMenu admin=new ventanaMenu(frame);
                 frame.setSize(800, 700);
                 limpiarEscritorio(admin,frame);

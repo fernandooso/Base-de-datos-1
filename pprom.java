@@ -25,13 +25,13 @@ class pprom extends JPanel {
 	this.setBackground(Color.WHITE);
 	this.setLayout(null);
 	setBounds(0, 0, 800, 700);
-        
+        //panel donde estan los demas componentes
         JPanel opcionesn = new JPanel();
         opcionesn.setBackground(Color.WHITE);
 	opcionesn.setBounds(0, 0, 800, 700);
         opcionesn.setLayout(null);
 	add(opcionesn);
-        
+        //tabla donde se mostraran los datos
         JTable tabla=new JTable();  
         tabla.setBounds(100, 200, 500, 300);
         conexion cone=new conexion();
@@ -44,9 +44,6 @@ class pprom extends JPanel {
         scrol.setBounds(100, 120, 500, 200);
         opcionesn.add(scrol);
         cone.desconectar();
-        
-        
-        
         
         JLabel label= new JLabel("Ver promedio por RUT");
         label.setBounds(300, 30, 200, 20);
@@ -76,8 +73,6 @@ class pprom extends JPanel {
         trut.setBounds(320, 60, 200, 25);
         opcionesn.add(trut);
         
-        
-        
         JButton ingresar= new JButton("Buscar resultado");
         ingresar.setBounds(300, 550, 161, 65);
         ingresar.setFont(new Font("Lucida Fax", Font.BOLD, 11));
@@ -105,30 +100,30 @@ class pprom extends JPanel {
         l2.setBounds(0, 0, 350, 700);
         p2.add(l2);
         
-        
+        //boton para ingresar la constulta
         ingresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String rut=trut.getText();
-                conexion cone=new conexion();
+                conexion cone=new conexion();//establece conexion
                 cone.conectpsql();
                 String consult1="select * from cursa where estudiante='"+rut+"';";
                 String consulta2="select avg(notas) from cursa where estudiante='"+rut+"';";
                 DefaultTableModel modelo=cone.consultanr(consult1);
                 double avg=0;
                 try {
-                    avg=cone.consultar(consulta2);
+                    avg=cone.consultar(consulta2);//ingreso de la consulta para obtener el promedio
                 } catch (SQLException ex) {
                     Logger.getLogger(pprom.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                String uwu = String.valueOf(avg);
-                label3.setText(uwu);
+                String promedio = String.valueOf(avg);
+                label3.setText(promedio);
                 tabla.setModel(modelo);
                 cone.desconectar();
             }
         });         
         
-        
+        //boton para volver al panle anterior
          volver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

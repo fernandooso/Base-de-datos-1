@@ -28,13 +28,9 @@ public class Maincipal extends JFrame {
         
         public Maincipal() {
 		initialize();
-
 	}
-                
-                
                 private void initialize(){
 		frame = new JFrame();//frame donde estaran los diferentes paneles y dialogos
-		//frame.getContentPane().setBackground(new Color(178, 34, 34));
 		frame.setBounds(100, 100, 800, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
@@ -44,15 +40,10 @@ public class Maincipal extends JFrame {
 //agrega o quita paneles--------------------------------------------------------------------------------
 
                 ventanaMenu menu=new ventanaMenu(frame);
-            
 		menu.setMinimumSize(new Dimension(1000, 10000));
 		menu.setBounds(0, 0, 800, 700);
 		frame.getContentPane().add(menu);
 	}
-                
-                
-                
-                
-
+        
     }  
 

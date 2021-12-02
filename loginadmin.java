@@ -30,7 +30,6 @@ class loginadmin extends JPanel {
         admin.setLayout(null);
 	add(admin);
        
-        
         JButton volver= new JButton("volver");
 	volver.setBounds(300, 300, 161, 45);
         volver.setFont(new Font("Lucida Fax", Font.BOLD, 11));
@@ -85,6 +84,7 @@ class loginadmin extends JPanel {
         login.setFont(new Font("Lucida Fax", Font.BOLD, 15));
         admin.add(login);
         
+        //boton para ingresar las consultas
         ingresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,21 +96,19 @@ class loginadmin extends JPanel {
                 String pass=String.valueOf(tpass.getPassword());
                 
                 String consulta="select pass from usardo where usuario='"+user+"';";
-                String respuesta="";
+                String respuesta="";//variable para guardar la contraseña obtenida
                 try {
-                    respuesta=con.consultapass(consulta);
+                    respuesta=con.consultapass(consulta);//consulta que retorna la contraseña
                
                 } catch (SQLException ex) {
                     Logger.getLogger(loginadmin.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-                //System.out.println(respuesta);
-             
                 con.desconectar();
                 if(user.equals("")){
                     JOptionPane.showMessageDialog(null,"Error usuario o contraseña incorrecto");
                 }else{
-                    if(pass.equals(respuesta)){
+                    if(pass.equals(respuesta)){//comprueba la contraseña
                         admin admin=new admin(frame);
                         frame.setSize(800, 700);
                         limpiarEscritorio(admin,frame);
@@ -125,12 +123,10 @@ class loginadmin extends JPanel {
         });
         
         
-        
+        //boton para volver
          volver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-                //volver al ventana
                 ventanaMenu admin=new ventanaMenu(frame);
                 frame.setSize(800, 700);
                 limpiarEscritorio(admin,frame);

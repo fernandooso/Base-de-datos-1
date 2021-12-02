@@ -34,7 +34,6 @@ class panelanotaciones extends JPanel {
         label.setFont(new Font("Lucida Fax", Font.BOLD, 15));
         anotaciones.add(label);
         
-        
         JLabel irut= new JLabel("Ingrese el RUT");
         irut.setBounds(100, 50, 161, 45);
         irut.setFont(new Font("Lucida Fax", Font.BOLD, 15));
@@ -86,7 +85,7 @@ class panelanotaciones extends JPanel {
                 conexion cone=new conexion();
                 cone.conectpsql();
                 String consult1="select * from anotaciones where anotado='"+rut+"';";
-                DefaultTableModel modelo=cone.consultaan(consult1);
+                DefaultTableModel modelo=cone.consultaan(consult1);//ingreso de la consulta
                 tabla.setModel(modelo);
                 cone.desconectar();
             }

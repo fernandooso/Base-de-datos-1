@@ -1,9 +1,16 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package prueba2;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ *
+ * @author bodo
+ */
 public class conexion {
 
     static Connection conectar=null;
@@ -11,37 +18,36 @@ public class conexion {
     static String usuario="colegio_dev";
     static String pass="aMgA5ka";
  
-    public void conectpsql() {
+    public void conectpsql() {//conexion con el jdbc
         try {
             conectar =DriverManager.getConnection(BD,usuario,pass);
         } catch (Exception e) {
         }
     }   
     
-    public void desconectar(){
+    public void desconectar(){//metodo para desconectar
         try {
             conectar.close();
         } catch (Exception e) {
         }
     }
-            
-
-    
-    public void insertaconsultasimple(String insert) throws SQLException{
+       
+    public void insertaconsultasimple(String insert) throws SQLException{//inserta una consulta
         Statement st=null;
         st= conectar.createStatement();
         st.executeUpdate(insert);
         st.close();
     }
     
-    public void insertaconsultadoble(String insert1,String insert2) throws SQLException{
+    public void insertaconsultadoble(String insert1,String insert2) throws SQLException{//inserta dos consultas
         Statement st=null;
         st= conectar.createStatement();
         st.executeUpdate(insert1);
         st.executeUpdate(insert2);
         st.close();
     }
-    public void insertaconsultatriple(String insert1,String insert2,String insert3) throws SQLException{
+    
+    public void insertaconsultatriple(String insert1,String insert2,String insert3) throws SQLException{//inserta tres consultas
         Statement st=null;
         st= conectar.createStatement();
         st.executeUpdate(insert1);
@@ -50,63 +56,25 @@ public class conexion {
         st.close();
     }
     
-    public String consultapass(String consulta) throws SQLException{
-        Statement st= conectar.createStatement();
+    public String consultapass(String consulta) throws SQLException{//metodo que realiza una consulta que recibe el password
+        Statement st= conectar.createStatement();                   //desde la base de datos y lo retorna para comparar
         ResultSet rs;
-        String uwu="";
+        String respuesta="";
         try {
             rs=st.executeQuery(consulta);
             while(rs.next()){ 
-               uwu=(rs.getString("pass"));
+               respuesta=(rs.getString("pass"));
 
            }
         } catch (Exception e) {
-            System.out.println("no pasa na compa");
+            
         }
         st.close();
-        return uwu;
+        return respuesta;
     }
     
-        public void consultasistencia(String consulta) throws SQLException{
-        Statement st= conectar.createStatement();
-        ResultSet rs;
-        try {
-            rs=st.executeQuery(consulta);
-            while(rs.next()){ 
-               System.out.println("alumno:"+rs.getString("alumnoa"));
-               System.out.println("curso:"+rs.getString("curso"));
-               System.out.println("asistencia:"+rs.getString("asistencia"));
-               System.out.println("fecha:"+rs.getString("fecha"));
-               System.out.println("");
-           }
-        } catch (Exception e) {
-            System.out.println("no pasa na compa");
-        }
-                
-        st.close();
-    }
-        public void consultanotaciones(String consulta) throws SQLException{
-        Statement st= conectar.createStatement();
-        ResultSet rs;
-        try {
-            rs=st.executeQuery(consulta);
-            while(rs.next()){ 
-               System.out.println("alumno:"+rs.getString("anotado"));
-               System.out.println("profesor:"+rs.getString("anotante"));
-               System.out.println("anotacion:"+rs.getString("comentario"));
-               System.out.println("tipo:"+rs.getString("tipo"));
-               System.out.println("fecha:"+rs.getString("fecha"));
-               System.out.println("");
-           }
-        } catch (Exception e) {
-            System.out.println("no pasa na compa");
-        }
-                
-        st.close();
-    }
-        
-    public DefaultTableModel consultanr(String consulta){
-       Statement st;
+    public DefaultTableModel consultanr(String consulta){//metodo que recibe los datos de una consulta dada en este caso
+       Statement st;                                    // de las notas de un alumno
        ResultSet rs;
        
        String []  nombresColumnas = {"Nombre","Materia","Notas"};
@@ -125,29 +93,8 @@ public class conexion {
         }
         return modelo;
     }   
-    
-       public DefaultTableModel consultan(String consulta){
-       Statement st;
-       ResultSet rs;
-       
-       String []  nombresColumnas = {"Nombre","Materia","Notas"};
-       String [] registros = new String[3];
-       DefaultTableModel modelo = new DefaultTableModel(null,nombresColumnas); 
-        try {
-            st=conectar.createStatement();
-            rs=st.executeQuery(consulta);
-            while(rs.next()){
-                registros[0] = rs.getString("estudiante");
-                registros[1] = rs.getString("materia");  
-                registros[2] = rs.getString("notas");
-                modelo.addRow(registros);  
-            }
-        } catch (Exception e) {
-        }
-        return modelo;
-    }  
-        
-        public double consultar(String consulta) throws SQLException{
+     
+        public double consultar(String consulta) throws SQLException{//metodo que obtiene el promedio y lo retorna
         Statement st= conectar.createStatement();
         ResultSet rs;
         double avg=0;
@@ -157,13 +104,13 @@ public class conexion {
                 avg=(rs.getDouble("avg"));
            }
         } catch (Exception e) {
-            System.out.println("no pasa na compa");
+            
         }
         st.close();
         return avg;
     }   
         
-    public DefaultTableModel consultaan(String consulta){
+    public DefaultTableModel consultaan(String consulta){//metodo que recibe los datos de una cosulta y crea la tabla en este caso anotaciones
        Statement st;
        ResultSet rs;
        String []  nombresColumnas = {"Nombre","Profesor","Anotaciones","Tipo","Fecha"};
@@ -185,7 +132,7 @@ public class conexion {
         return modelo;
     }     
 
-    DefaultTableModel consultaas(String consult1) {
+    DefaultTableModel consultaas(String consult1) {//metodo que recibe los datos de una consulta y crea la tabla en este caso de asistencia
        Statement st;
        ResultSet rs;
        String []  nombresColumnas = {"Nombre","Curso","Asistencia","Fecha"};

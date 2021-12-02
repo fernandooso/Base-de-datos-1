@@ -84,7 +84,7 @@ class loginprofeprofe extends JPanel {
         login.setBounds(320, 20, 161, 45);
         login.setFont(new Font("Lucida Fax", Font.BOLD, 15));
         admin.add(login);
-        
+        //boton para ingresar la consulta
         ingresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,16 +96,15 @@ class loginprofeprofe extends JPanel {
                 String pass=String.valueOf(tpass.getPassword());
                 
                 String consulta="select pass from usardo where usuario='"+user+"';";
-                String respuesta="";
+                String respuesta="";//variable para guardar la contraseña obtenida
                 try {
-                    respuesta=con.consultapass(consulta);
+                    respuesta=con.consultapass(consulta);//consulta que retorna la contraseña
                
                 } catch (SQLException ex) {
                     Logger.getLogger(loginadmin.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-                System.out.println(respuesta);
-             
+                
                 con.desconectar();
                 if(user.equals("")){
                     JOptionPane.showMessageDialog(null,"Error usuario o contraseña incorrecto");

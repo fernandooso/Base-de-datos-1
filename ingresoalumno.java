@@ -165,7 +165,7 @@ class ingresoalumno extends JPanel {
                 
                 
                 try {
-                    con.insertaconsultadoble(insert1, insert2);
+                    con.insertaconsultadoble(insert1, insert2);//inreso de las consultas
                     con.insertaconsultasimple(insert3);
                 } catch (SQLException ex) {
                     Logger.getLogger(ingresoalumno.class.getName()).log(Level.SEVERE, null, ex);
@@ -183,7 +183,7 @@ class ingresoalumno extends JPanel {
                 
             }
         });
-        
+        //boton para volver
         volver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
